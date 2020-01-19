@@ -28,7 +28,6 @@ void MyParallelServer::open(int port, ClientHandler *clientHandler) {
 
   /* Check of creation succeeded*/
   if (sockfd < 0) {
-    //perror("Error opening socket.");
     exit(1);
   }
 
@@ -41,7 +40,6 @@ void MyParallelServer::open(int port, ClientHandler *clientHandler) {
 
   /* Now bind the host address using bind() call.*/
   if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-    //perror("Failed to bind server connection.");
     exit(1);
   }
 
@@ -106,7 +104,6 @@ void MyParallelServer::stop() {
  * @return
  */
 void *MyParallelServer::callHandler(void *args) {
-
   /* Call client handler. */
   auto *arguments = (ArgumentsForOpenServer *) args;
   arguments->getClientHandler()->handleClient(arguments->getSocketID());

@@ -24,7 +24,6 @@ class StringReverser : public Solver<std::string, std::string> {
     std::reverse(solution.begin(), solution.end());
     return solution;
   }
-
 };
 
 #endif //BIUPROJECT2_STRINGREVERSER_H

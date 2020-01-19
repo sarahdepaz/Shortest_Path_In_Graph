@@ -6,18 +6,11 @@
  * @param socket_id The socket we connected through.
  */
 void MyClientHandler::handleClient(int socket_id) {
-
   /* Hold's the parameters we need for solver. */
   std::string data;
   std::string maze;
   std::string start_pos;
   std::string goal_pos;
-
-  /*bool garbage = true;
-  while (garbage) {
-      std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  }*/
-
   /* Reading from client. */
   data = Read(socket_id);
   if (data.empty()) {
@@ -64,7 +57,6 @@ void MyClientHandler::handleClient(int socket_id) {
   if (this->cacheManager->isSolutionExists(problem_text)) {
     result = this->cacheManager->getSolution(problem_text);
   } else {
-
     // Solving and saving.
     try {
 
@@ -123,14 +115,16 @@ std::string MyClientHandler::GetPath(State<std::pair<int, int>> *pathEnd) {
   while (previous != nullptr) {
     std::pair<int, int> current_pos = current->getState();
     std::pair<int, int> previous_pos = previous->getState();
+    // Changed to capital letters to match output
+    // todo need to add vertices
     if (current_pos.first == previous_pos.first + 1) {
-      result.insert(0, ",down");
+      result.insert(0, ",Down");
     } else if (current_pos.first == previous_pos.first - 1) {
-      result.insert(0, ",up");
+      result.insert(0, ",Up");
     } else if (current_pos.second == previous_pos.second - 1) {
-      result.insert(0, ",left");
+      result.insert(0, ",Left");
     } else if (current_pos.second == previous_pos.second + 1) {
-      result.insert(0, ",right");
+      result.insert(0, ",Right");
     }
     current = previous;
     previous = current->getCameFrom();
@@ -155,15 +149,12 @@ std::string MyClientHandler::Read(int socket_id) {
   std::string data_read;
 
   while (!isEndReached) {
-
-
     /* Clear buffer. */
     bzero(buffer, 1024);
     number_of_bytes_read = (int) read(socket_id, buffer, 1023);
 
     /* Check for reading failure. */
     if (number_of_bytes_read < 0) {
-      //perror("ERROR reading from socket");
       return "";
     }
 

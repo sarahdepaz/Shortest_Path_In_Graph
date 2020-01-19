@@ -25,7 +25,6 @@ SearchableMatrix::SearchableMatrix(std::string maze, std::string start, std::str
 
   /* A stream to parse with. */
   std::stringstream linesParser;
-  //std::stringstream lineParser;
   linesParser.str(maze);
 
   /* Splitting the date to elements. */

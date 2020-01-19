@@ -19,7 +19,6 @@ void MyTestClientHandler::handleClient(int socketfd) {
     current = buffer;
 
     if (n < 0) {
-      //perror("ERROR reading from socket");
       exit(1);
     }
 
@@ -45,7 +44,6 @@ void MyTestClientHandler::handleClient(int socketfd) {
       n = write(socketfd, solution.c_str(), (int) (solution.length()));
 
       if (n < 0) {
-        //perror("ERROR writing to socket");
         exit(1);
       }
     }
