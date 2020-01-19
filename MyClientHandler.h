@@ -18,29 +18,28 @@
 
 class MyClientHandler : public ClientHandler {
 
-private:
-    //// Members:
-    Solver<ISearchable<std::pair<int,int>>*,State<std::pair<int,int>>*> *solver;
-    CacheManager *cacheManager;
+ private:
+  //// Members:
+  Solver<ISearchable<std::pair<int, int>> *, State<std::pair<int, int>> *> *solver;
+  CacheManager *cacheManager;
 
-    //// Private Functions:
-    std::string GetPath(State<std::pair<int,int>>*);
-    std::string Read(int);
-    std::size_t GetHashOfString(std::string);
+  //// Private Functions:
+  std::string GetPath(State<std::pair<int, int>> *);
+  std::string Read(int);
+  std::size_t GetHashOfString(std::string);
 
-public:
-    //// Constructor:
-    MyClientHandler
-        (Solver<ISearchable<std::pair<int, int>> *,State<std::pair<int, int>> *> *solver,
-         CacheManager *cacheManager) {
+ public:
+  //// Constructor:
+  MyClientHandler
+      (Solver<ISearchable<std::pair<int, int>> *, State<std::pair<int, int>> *> *solver,
+       CacheManager *cacheManager) {
 
-        this->cacheManager = cacheManager;
-        this->solver = solver;
-    }
+    this->cacheManager = cacheManager;
+    this->solver = solver;
+  }
 
-    //// Public Functions:
-    void handleClient(int i) override;
+  //// Public Functions:
+  void handleClient(int i) override;
 };
-
 
 #endif //BIUPROJECT2_MYCLIENTHANDLER_H

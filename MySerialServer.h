@@ -15,11 +15,10 @@
 using namespace server_side;
 
 class MySerialServer : public Server {
-public:
-    virtual void open(int port, ClientHandler* clientHandler);
-    virtual void stop();
-    static void *openServer(void* argumentsForOpenServer);
+ public:
+  virtual void open(int port, ClientHandler *clientHandler);
+  virtual void stop();
+  static void *openServer(void *argumentsForOpenServer);
 };
-
 
 #endif //BIUPROJECT2_MYSERIALSERVER_H
