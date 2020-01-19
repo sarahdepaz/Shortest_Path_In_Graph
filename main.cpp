@@ -42,21 +42,18 @@ std::string GetPath(State<std::pair<int, int>> *go) {
 }
 
 int main(int argc, char **argv) {
-
   /* Trying to get port from client. */
   int port;
   if (argc == 1) {
-    //perror("No port provided.\n");
     exit(0);
   } else if (argc == 2) {
     try {
       port = std::stoi(argv[1]);
+      // todo check with roi if will be supplied in main
     } catch (std::exception &e) {
-      //perror("Bad port provided.\n");
       exit(0);
     }
   } else {
-    //perror("To many arguments provided.\n");
     exit(0);
   }
 
