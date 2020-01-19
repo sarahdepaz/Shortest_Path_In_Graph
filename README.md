@@ -27,9 +27,11 @@ You can also change the starting position using the 'entry_row/col' numbers, and
 The final line of your input needs to be 'end' in order to tell the algorithm to start looking for the path.
 
 **Solution**
+
 Once the algorithm has finished searching for the path, it will display it in a sequence of instructions - go left, go right, etc.
 
 **Example**
+
 Suppose we give the program the following problem:
 ```
 5,4,3,2,1
