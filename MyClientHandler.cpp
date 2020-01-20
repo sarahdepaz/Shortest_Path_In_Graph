@@ -118,13 +118,13 @@ std::string MyClientHandler::GetPath(State<std::pair<int, int>> *pathEnd) {
     // Changed to capital letters to match output
     // todo need to add vertices
     if (current_pos.first == previous_pos.first + 1) {
-      result.insert(0, ",Down (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Down (" + std::to_string((int)current->getTotal_cost_to())+") ");
     } else if (current_pos.first == previous_pos.first - 1) {
-      result.insert(0, ",Up (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Up (" + std::to_string((int)current->getTotal_cost_to())+") ");
     } else if (current_pos.second == previous_pos.second - 1) {
-      result.insert(0, ",Left (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Left (" + std::to_string((int)current->getTotal_cost_to())+") ");
     } else if (current_pos.second == previous_pos.second + 1) {
-      result.insert(0, ",Right (" +std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Right (" +std::to_string((int)current->getTotal_cost_to())+") ");
     }
     current = previous;
     previous = current->getCameFrom();

@@ -24,13 +24,13 @@ std::string GetPath(State<std::pair<int, int>> *go) {
     std::pair<int, int> current_pos = current->getState();
     std::pair<int, int> previous_pos = previous->getState();
     if (current_pos.first == previous_pos.first + 1) {
-      result.insert(0, ",Down (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Down (" + std::to_string((int)current->getTotal_cost_to())+") ");
     } else if (current_pos.first == previous_pos.first - 1) {
-      result.insert(0, ",Up (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Up (" + std::to_string((int)current->getTotal_cost_to())+") ");
     } else if (current_pos.second == previous_pos.second - 1) {
-      result.insert(0, ",Left (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Left (" + std::to_string((int)current->getTotal_cost_to())+") ");
     } else if (current_pos.second == previous_pos.second + 1) {
-      result.insert(0, ",Right (" + std::to_string((int)current->getTotal_cost_to())+")");
+      result.insert(0, ",Right (" + std::to_string((int)current->getTotal_cost_to())+") ");
     }
     current = previous;
     previous = current->getCameFrom();
