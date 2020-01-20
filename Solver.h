@@ -19,7 +19,11 @@ class Solver {
    * @return Solution.
    */
   virtual S solveProblem(P) = 0;
-
+  /**
+ * The clone method.
+ * @return clone
+ */
+//  virtual Solver *clone() = 0;
   /**
    * Destructor.
    */

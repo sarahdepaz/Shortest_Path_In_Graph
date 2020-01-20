@@ -91,7 +91,7 @@ void MyClientHandler::handleClient(int socket_id) {
 
   // Writing solution.
   result += '\n';
-  int n = write(socket_id, result.c_str(), (result.length()));
+  int n = send(socket_id, result.c_str(), (result.length()), 0);
 
   if (n < 0) {
     //perror("ERROR writing to socket");
@@ -118,13 +118,13 @@ std::string MyClientHandler::GetPath(State<std::pair<int, int>> *pathEnd) {
     // Changed to capital letters to match output
     // todo need to add vertices
     if (current_pos.first == previous_pos.first + 1) {
-      result.insert(0, ",Down");
+      result.insert(0, ",Down (" + std::to_string((int)current->getTotal_cost_to())+")");
     } else if (current_pos.first == previous_pos.first - 1) {
-      result.insert(0, ",Up");
+      result.insert(0, ",Up (" + std::to_string((int)current->getTotal_cost_to())+")");
     } else if (current_pos.second == previous_pos.second - 1) {
-      result.insert(0, ",Left");
+      result.insert(0, ",Left (" + std::to_string((int)current->getTotal_cost_to())+")");
     } else if (current_pos.second == previous_pos.second + 1) {
-      result.insert(0, ",Right");
+      result.insert(0, ",Right (" +std::to_string((int)current->getTotal_cost_to())+")");
     }
     current = previous;
     previous = current->getCameFrom();
@@ -168,10 +168,8 @@ std::string MyClientHandler::Read(int socket_id) {
       isEndReached = true;
     }
   }
-
   actual_data = all_data.substr(0, all_data.find("end"));
   actual_data.erase(std::remove(actual_data.begin(), actual_data.end(), '\r'), actual_data.end());
-
   return actual_data;
 
 }
@@ -184,3 +182,8 @@ std::string MyClientHandler::Read(int socket_id) {
 std::size_t MyClientHandler::GetHashOfString(std::string str) {
   return std::hash<std::string>{}(str);
 }
+
+//ClientHandler *MyClientHandler::clone() {
+//  ClientHandler *c = new MyClientHandler(solver->clone(), cacheManager);
+//  return c;
+//}

@@ -40,6 +40,7 @@ class MyClientHandler : public ClientHandler {
 
   //// Public Functions:
   void handleClient(int i) override;
+//  ClientHandler *clone();
 };
 
 #endif //BIUPROJECT2_MYCLIENTHANDLER_H

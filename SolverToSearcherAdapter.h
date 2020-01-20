@@ -31,7 +31,6 @@ class SolverToSearcherAdapter : public Solver<ISearchable<std::pair<int, int>> *
   State<std::pair<int, int>> *solveProblem(ISearchable<std::pair<int, int> > *searchable) override {
     return searcher->search(searchable);
   }
-
 };
 
 #endif //BIUPROJECT2_SOLVERTOSEARCHERADAPTER_H
