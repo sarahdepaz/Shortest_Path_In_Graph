@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
   Solver<ISearchable<std::pair<int, int>> *, State<std::pair<int, int>> *> *solver
       = new SolverToSearcherAdapter(searcher);
   /* Creates CacheManager and ClientHandler. */
-  CacheManager *cacheManager = new FileCacheManager("matrixDFS.txt");
+  CacheManager *cacheManager = new FileCacheManager("matrix.txt");
   MyClientHandler myClientHandler(solver, cacheManager);
 
   /* Create and call server. */
