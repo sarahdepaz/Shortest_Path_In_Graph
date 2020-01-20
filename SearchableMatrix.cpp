@@ -6,7 +6,6 @@ SearchableMatrix::SearchableMatrix(std::string maze, std::string start, std::str
 
   std::string tempVal;
   std::stringstream lineParser;
-
   lineParser.str(start);
   std::getline(lineParser, tempVal, ',');
   int start_i = std::stoi(tempVal);

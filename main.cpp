@@ -52,13 +52,13 @@ int main(int argc, char **argv) {
   }
   /* Creates searcher as a solver. */
   ISearcher<std::pair<int, int>, State<std::pair<int, int>> *> *searcher;
-  //searcher = new BestFirstSearch<std::pair<int, int>, State<std::pair<int, int>> *>;
+  //searcher = new DepthFirstSearch<std::pair<int, int>, State<std::pair<int, int>> *>;
   //searcher = new BreadthFirstSearch<std::pair<int, int>, State<std::pair<int, int>> *>;
   searcher = new AStar<std::pair<int, int>, State<std::pair<int, int>> *>;
   Solver<ISearchable<std::pair<int, int>> *, State<std::pair<int, int>> *> *solver
       = new SolverToSearcherAdapter(searcher);
   /* Creates CacheManager and ClientHandler. */
-  CacheManager *cacheManager = new FileCacheManager("matrix.txt");
+  CacheManager *cacheManager = new FileCacheManager("matrixDFS.txt");
   MyClientHandler myClientHandler(solver, cacheManager);
 
   /* Create and call server. */
