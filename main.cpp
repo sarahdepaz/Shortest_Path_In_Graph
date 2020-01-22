@@ -17,7 +17,6 @@
 #include "BreadthFirstSearch.h"
 
 std::string GetPath(State<std::pair<int, int>> *go) {
-
   State<std::pair<int, int>> *current = go;
   State<std::pair<int, int>> *previous = current->getCameFrom();
   std::string result;
