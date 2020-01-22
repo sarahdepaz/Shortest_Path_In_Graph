@@ -18,8 +18,8 @@ class AStar : public BestFirstSearch<P, S> {
 
   /**
   * Calculate the linear distance between two States.
-  * @param a First State.
-  * @param b Second State.
+  * @param a the First State.
+  * @param b the Second State.
   * @return The linear distance between two States.
   */
   double DistanceToEnd(State<P> *a, State<P> *b) {
@@ -37,7 +37,6 @@ class AStar : public BestFirstSearch<P, S> {
  public:
 
   double CalculatePotentialCost(State<P> *current, State<P> *papa, State<P> *goal, State<P> *start) override {
-
     return (papa->getTotal_cost_to() +
         current->getOriginal_cost() +
         current->getDistance_from_start() +
