@@ -36,7 +36,6 @@ std::string GetPath(State<std::pair<int, int>> *go) {
     previous = current->getCameFrom();
   }
   result.erase(0, 1);
-
   return result;
 
 }
