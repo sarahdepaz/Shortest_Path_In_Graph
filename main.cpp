@@ -50,8 +50,10 @@ int main(int argc, char **argv) {
     port = 5600;
   }
   /* Creates searcher as a solver. */
+
   ISearcher<std::pair<int, int>, State<std::pair<int, int>> *> *searcher;
   //searcher = new BestFirstSearch<std::pair<int, int>, State<std::pair<int, int>> *>;
+
   searcher = new AStar<std::pair<int, int>, State<std::pair<int, int>> *>;
   Solver<ISearchable<std::pair<int, int>> *, State<std::pair<int, int>> *> *solver
       = new SolverToSearcherAdapter(searcher);
@@ -60,10 +62,12 @@ int main(int argc, char **argv) {
   MyClientHandler myClientHandler(solver, cacheManager);
 
   /* Create and call server. */
+
   MyParallelServer myParallelServer;
   myParallelServer.open(port, &myClientHandler);
 
   /* Delete used space. */
+
   delete (searcher);
   delete (solver);
   delete (cacheManager);
