@@ -68,7 +68,6 @@ void *MySerialServer::openServer(void *argumentsForOpenServer) {
 }
 
 void MySerialServer::open(int port, ClientHandler *clientHandler) {
-
   auto argumentsForOpenServer = new ArgumentsForOpenServer(port, clientHandler);
 
   /* Create thread that'll open a server and read from the client. */

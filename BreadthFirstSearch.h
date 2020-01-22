@@ -59,6 +59,7 @@ class BreadthFirstSearch : public ISearcher<P, S> {
   }
 
   int getNumberOfNodesEvaluated() {
+
     return this->numberOfNodesEvaluated;
   }
 };

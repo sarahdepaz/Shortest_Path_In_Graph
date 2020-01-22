@@ -91,6 +91,7 @@ void MyParallelServer::open(int port, ClientHandler *clientHandler) {
 void MyParallelServer::stop() {
 
   void *status;
+
   auto iterator = this->threads.begin();
   for (; iterator != this->threads.end(); ++iterator) {
     pthread_join((*(*iterator)), &status);
@@ -104,6 +105,7 @@ void MyParallelServer::stop() {
  * @return
  */
 void *MyParallelServer::callHandler(void *args) {
+
   /* Call client handler. */
   auto *arguments = (ArgumentsForOpenServer *) args;
   arguments->getClientHandler()->handleClient(arguments->getSocketID());

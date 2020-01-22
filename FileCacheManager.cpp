@@ -25,6 +25,7 @@ bool FileCacheManager::isSolutionExists(const std::string solution) {
  * @return The solution.
  */
 std::string FileCacheManager::getSolution(const std::string problem) {
+
   if (isSolutionExists(problem)) {
     return this->solutions.at(problem);
   } else {
