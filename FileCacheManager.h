@@ -15,6 +15,7 @@ class FileCacheManager : public CacheManager {
 
   //// Members:
   string filePath;
+
   std::unordered_map<std::string, std::string> solutions;
 
   //// Private Functions:
@@ -23,8 +24,11 @@ class FileCacheManager : public CacheManager {
 
   //// Public Functions:
   explicit FileCacheManager(std::string);
+
   virtual bool isSolutionExists(std::string);
+
   virtual std::string getSolution(std::string);
+
   virtual void saveSolution(std::string, std::string);
 
   ~FileCacheManager() {};
