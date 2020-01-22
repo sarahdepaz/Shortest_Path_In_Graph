@@ -57,7 +57,7 @@ void MyParallelServer::open(int port, ClientHandler *clientHandler) {
       setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char *) &timeout, sizeof(timeout));
     }
 
-    listen(sockfd, 5);
+    listen(sockfd, 10);
     clilen = sizeof(cli_addr);
 
     /* Accept actual connection from the client */
