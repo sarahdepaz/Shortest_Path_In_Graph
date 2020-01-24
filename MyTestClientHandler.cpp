@@ -16,7 +16,6 @@ void MyTestClientHandler::handleClient(int socketfd) {
     bzero(buffer, 1024);
 
     n = (int) read(socketfd, buffer, 1023);
-
     current = buffer;
 
     if (n < 0) {

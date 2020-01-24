@@ -27,7 +27,7 @@ class PQSearcher : public ISearcher<P, S> {
    * Constructor.
    * @param cmp_func the compare function for multiset.
    */
-  PQSearcher(bool (*cmp_func)(State<P> *a, State<P> *b)) : numberOfNodesEvaluated(0), stateSet(cmp_func) {}
+  PQSearcher(bool (*cmp_func)(State<P> *a, State<P> *b)) : numberOfNodesEvaluated(0), stateSet(cmp_func) { }
 
   /**
    * Find a specific State in multiset.
@@ -42,6 +42,7 @@ class PQSearcher : public ISearcher<P, S> {
     for (; iterator != equal_range.second; ++iterator) {
 
       if ((*iterator)->getState() == to_find->getState()) {
+
         return iterator;
       }
     }
@@ -62,6 +63,7 @@ class PQSearcher : public ISearcher<P, S> {
 
       if ((*iterator)->getState() == to_delete->getState()) {
         this->stateSet.erase(iterator);
+
         return;
       }
     }
