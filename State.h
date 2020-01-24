@@ -25,6 +25,7 @@ class State {
   //// CONSTRUCTORS
 
   State(T status, double costTo, State<T> *prev) {
+
     this->state = status;
     this->cost = costTo;
     this->cameFrom = prev;
@@ -32,21 +33,25 @@ class State {
     this->original_cost = costTo;
     this->distance_from_start = 0;
     this->total_cost_to = costTo;
+
   }
 
   //// CHECKERS
 
   bool Equals(const State<T> *s) {
-    return this->state == (s->state);
+
+      return this->state == (s->state);
   }
 
   //// SETTERS
 
   void setDistance_from_start(int distance_from_start) {
+
     this->distance_from_start = distance_from_start;
   }
 
   void setCost(double costTo) {
+
     this->cost = costTo;
   }
 
@@ -59,6 +64,7 @@ class State {
   }
 
   void setTotal_cost_to(double total_cost_to) {
+
     State::total_cost_to = total_cost_to;
   }
 
@@ -89,6 +95,7 @@ class State {
   }
 
   int getDistance_from_start() const {
+
     return distance_from_start;
   }
 
