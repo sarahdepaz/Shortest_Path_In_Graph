@@ -36,7 +36,6 @@ std::string GetPath(State<std::pair<int, int>> *go) {
     previous = current->getCameFrom();
   }
   result.erase(0, 1);
-
   return result;
 
 }
@@ -52,6 +51,7 @@ int main(int argc, char **argv) {
   /* Creates searcher as a solver. */
 
   ISearcher<std::pair<int, int>, State<std::pair<int, int>> *> *searcher;
+  // checked perforemnce
   //searcher = new BestFirstSearch<std::pair<int, int>, State<std::pair<int, int>> *>;
 
   searcher = new AStar<std::pair<int, int>, State<std::pair<int, int>> *>;

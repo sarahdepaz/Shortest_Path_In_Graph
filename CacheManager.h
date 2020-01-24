@@ -5,7 +5,7 @@
 #include <string>
 
 /*
- * Define's a  Cache Manager object.
+ * Define's the  Cache Manager class.
  */
 class CacheManager {
  public:
