@@ -34,6 +34,7 @@ SearchableMatrix::SearchableMatrix(std::string maze, std::string start, std::str
 
     /* If the line is not empty parse it. */
     if (!tempLine.empty()) {
+
       lineParser.str(tempLine);
 
       /* Splitting the date to elements. */
@@ -54,8 +55,11 @@ SearchableMatrix::SearchableMatrix(std::string maze, std::string start, std::str
     std::vector<State<std::pair<int, int>> *> stateRow;
     auto it2 = it1->begin();
     for (; it2 != it1->end(); ++it2) {
+
       std::pair<int, int> insertPair(i, j);
+
       double insertCost = this->mazeMatrix.at(i).at(j);
+
       stateRow.push_back(new State<std::pair<int, int>>(insertPair, insertCost, nullptr));
       ++j;
     }
@@ -65,6 +69,7 @@ SearchableMatrix::SearchableMatrix(std::string maze, std::string start, std::str
   }
 
   this->start = this->stateMatrix.at(start_i).at(start_j);
+
   this->goal = this->stateMatrix.at(goal_i).at(goal_j);
 }
 

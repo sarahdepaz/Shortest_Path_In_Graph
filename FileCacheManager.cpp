@@ -16,6 +16,7 @@ FileCacheManager::FileCacheManager(std::string path) {
  * @return Does the solution exist's in map;
  */
 bool FileCacheManager::isSolutionExists(const std::string solution) {
+
   return (this->solutions.count(solution) > 0);
 }
 
@@ -42,6 +43,7 @@ void FileCacheManager::saveSolution(const std::string problem, const std::string
 
   /* Create file object. */
   ofstream dataFile;
+
   dataFile.open(this->filePath, std::ios_base::app);
 
   /* Adding to map. */
@@ -52,6 +54,7 @@ void FileCacheManager::saveSolution(const std::string problem, const std::string
 
   /* Writing to file */
   dataFile << problem << endl;
+
   dataFile << solution << endl;
 
   /* Closing file. */
@@ -70,6 +73,7 @@ void FileCacheManager::loadAllSolutions() {
   data.open(this->filePath);
 
   if (!data.good()) {
+
     return;
   }
 

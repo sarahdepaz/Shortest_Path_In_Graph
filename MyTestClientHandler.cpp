@@ -6,6 +6,7 @@ void MyTestClientHandler::handleClient(int socketfd) {
   /* Read from server line by line until isEndReached is false ("end" line reached). */
   bool isEndReached = true;
   string current;
+
   char buffer[1024];
   int n;
 
@@ -24,6 +25,7 @@ void MyTestClientHandler::handleClient(int socketfd) {
 
     if (current == "end" || current == "end\n" || current == "end\r\n") {
       /* Reading should end. */
+
       isEndReached = false;
     } else {
       bool isSolution = cacheManager->isSolutionExists(current);
@@ -34,6 +36,7 @@ void MyTestClientHandler::handleClient(int socketfd) {
       if (isSolution) {
         solution = cacheManager->getSolution(current);
       } else {
+
         solution = solver->solveProblem(current);
         cacheManager->saveSolution(current, solution);
       }
@@ -44,6 +47,7 @@ void MyTestClientHandler::handleClient(int socketfd) {
       n = write(socketfd, solution.c_str(), (int) (solution.length()));
 
       if (n < 0) {
+
         exit(1);
       }
     }

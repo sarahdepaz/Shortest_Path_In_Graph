@@ -20,7 +20,9 @@ class MyTestClientHandler : public ClientHandler {
  public:
 
   MyTestClientHandler(Solver<string, string> *solver1, CacheManager *cacheManager1) {
+
     solver = solver1;
+
     cacheManager = cacheManager1;
   }
 

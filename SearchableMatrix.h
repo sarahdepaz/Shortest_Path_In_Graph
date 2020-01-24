@@ -19,13 +19,14 @@ class SearchableMatrix : public ISearchable<std::pair<int, int>> {
   State<std::pair<int, int>> *start;
 
  public:
+
   SearchableMatrix(std::string, std::string, std::string);
 
  public:
   State<std::pair<int, int>> *getInitialState() override;
   State<std::pair<int, int>> *getGoalState() override;
   std::vector<State<std::pair<int, int>> *> getAllPossibleStates(State<std::pair<int, int>> *) override;
-  ~SearchableMatrix() override;
+  ~SearchableMatrix()  override;
 };
 
 #endif //BIUPROJECT2_SEARCHABLEMATRIX_H
