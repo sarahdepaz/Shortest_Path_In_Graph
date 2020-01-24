@@ -16,6 +16,7 @@ class ISearchable {
 
   //// GETTERS
   virtual State<T> *getInitialState() = 0;
+
   virtual State<T> *getGoalState() = 0;
 
   /**
