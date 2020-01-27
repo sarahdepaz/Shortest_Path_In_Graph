@@ -12,18 +12,18 @@
  */
 class StringReverser : public Solver<std::string, std::string> {
 
- public:
+public:
 
-  /**
-   * Reverse a string.
-   * @param problem The string to reverse.
-   * @return the reversed string.
-   */
-  virtual std::string solveProblem(const std::string problem) {
-    std::string solution = problem;
-    std::reverse(solution.begin(), solution.end());
-    return solution;
-  }
+    /**
+     * Reverse a string.
+     * @param problem The string to reverse.
+     * @return the reversed string.
+     */
+    virtual std::string solveProblem(const std::string problem) {
+        std::string solution = problem;
+        std::reverse(solution.begin(), solution.end());
+        return solution;
+    }
 };
 
 #endif //BIUPROJECT2_STRINGREVERSER_H

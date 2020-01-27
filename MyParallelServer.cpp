@@ -9,80 +9,80 @@
  */
 void MyParallelServer::open(int port, ClientHandler *clientHandler) {
 
-  int sockfd, newsockfd, clilen;
-  struct sockaddr_in serv_addr, cli_addr;
-  bool first_client_served = false;
+    int sockfd, newsockfd, clilen;
+    struct sockaddr_in serv_addr, cli_addr;
+    bool first_client_served = false;
 
-  /**
-   * First call to socket() function:
-   * AF_INET     - IPv4 (Domain protocol)
-   * SOCK_STREAM - TCP (Communication type)
-   * 0           - IP (Protocol)
-   */
-  sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    /**
+     * First call to socket() function:
+     * AF_INET     - IPv4 (Domain protocol)
+     * SOCK_STREAM - TCP (Communication type)
+     * 0           - IP (Protocol)
+     */
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-  /* Initialize and set thread as joinable. */
-  pthread_attr_t attr;
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+    /* Initialize and set thread as joinable. */
+    pthread_attr_t attr;
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
-  /* Check of creation succeeded*/
-  if (sockfd < 0) {
-    exit(1);
-  }
-
-  /* Initialize socket structure */
-  bzero((char *) &serv_addr, sizeof(serv_addr));
-
-  serv_addr.sin_family = AF_INET;
-  serv_addr.sin_addr.s_addr = INADDR_ANY;
-  serv_addr.sin_port = htons((uint16_t) ((size_t) port));
-
-  /* Now bind the host address using bind() call.*/
-  if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-    exit(1);
-  }
-
-  bool time_out = false;
-
-  /* Now start listening for the clients. */
-  while (!time_out) {
-
-    /* Waiting forever for first client only. */
-    if (first_client_served) {
-      timeval timeout;
-      timeout.tv_sec = 10;
-      timeout.tv_usec = 0;
-
-      setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char *) &timeout, sizeof(timeout));
+    /* Check of creation succeeded*/
+    if (sockfd < 0) {
+        exit(1);
     }
 
-    listen(sockfd, 10);
-    clilen = sizeof(cli_addr);
+    /* Initialize socket structure */
+    bzero((char *) &serv_addr, sizeof(serv_addr));
 
-    /* Accept actual connection from the client */
-    newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, (socklen_t *) &clilen);
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = INADDR_ANY;
+    serv_addr.sin_port = htons((uint16_t) ((size_t) port));
 
-    /* Flag we got at least one client served. */
-    first_client_served = true;
-
-    /* Checking connection success. */
-    if (newsockfd < 0) {
-      //perror("timeout!");
-      time_out = true;
-    } else {
-
-      /* If we got a connected client, call handler in new thread. */
-      auto args = new ArgumentsForOpenServer(port, clientHandler, newsockfd);
-      pthread_t *pthread = new pthread_t;
-      this->threads.push_back(pthread);
-      pthread_create(pthread, &attr, MyParallelServer::callHandler, (void *) (args));
+    /* Now bind the host address using bind() call.*/
+    if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+        exit(1);
     }
-  }
 
-  /* Free attribute */
-  pthread_attr_destroy(&attr);
-  stop();
+    bool time_out = false;
+
+    /* Now start listening for the clients. */
+    while (!time_out) {
+
+        /* Waiting forever for first client only. */
+        if (first_client_served) {
+            timeval timeout;
+            timeout.tv_sec = 10;
+            timeout.tv_usec = 0;
+
+            setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char *) &timeout, sizeof(timeout));
+        }
+
+        listen(sockfd, 10);
+        clilen = sizeof(cli_addr);
+
+        /* Accept actual connection from the client */
+        newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, (socklen_t *) &clilen);
+
+        /* Flag we got at least one client served. */
+        first_client_served = true;
+
+        /* Checking connection success. */
+        if (newsockfd < 0) {
+            //perror("timeout!");
+            time_out = true;
+        } else {
+
+            /* If we got a connected client, call handler in new thread. */
+            auto args = new ArgumentsForOpenServer(port, clientHandler, newsockfd);
+            pthread_t *pthread = new pthread_t;
+            this->threads.push_back(pthread);
+            pthread_create(pthread, &attr, MyParallelServer::callHandler, (void *) (args));
+        }
+    }
+
+    /* Free attribute */
+    pthread_attr_destroy(&attr);
+    stop();
 }
 
 /**
@@ -90,13 +90,13 @@ void MyParallelServer::open(int port, ClientHandler *clientHandler) {
  */
 void MyParallelServer::stop() {
 
-  void *status;
+    void *status;
 
-  auto iterator = this->threads.begin();
-  for (; iterator != this->threads.end(); ++iterator) {
-    pthread_join((*(*iterator)), &status);
-    free((*iterator));
-  }
+    auto iterator = this->threads.begin();
+    for (; iterator != this->threads.end(); ++iterator) {
+        pthread_join((*(*iterator)), &status);
+        free((*iterator));
+    }
 }
 
 /**
@@ -106,7 +106,7 @@ void MyParallelServer::stop() {
  */
 void *MyParallelServer::callHandler(void *args) {
 
-  /* Call client handler. */
-  auto *arguments = (ArgumentsForOpenServer *) args;
-  arguments->getClientHandler()->handleClient(arguments->getSocketID());
+    /* Call client handler. */
+    auto *arguments = (ArgumentsForOpenServer *) args;
+    arguments->getClientHandler()->handleClient(arguments->getSocketID());
 }

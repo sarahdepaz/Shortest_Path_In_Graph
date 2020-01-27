@@ -9,103 +9,103 @@
 template<class T>
 class State {
 
- private:
+private:
 
-  //// Data Members.
-  int distance_from_start;
-  double total_cost_to;
-  double original_cost;
-  State<T> *cameFrom;
-  bool visited;
-  double cost;
-  T state;
+    //// Data Members.
+    int distance_from_start;
+    double total_cost_to;
+    double original_cost;
+    State<T> *cameFrom;
+    bool visited;
+    double cost;
+    T state;
 
- public:
+public:
 
-  //// CONSTRUCTORS
+    //// CONSTRUCTORS
 
-  State(T status, double costTo, State<T> *prev) {
+    State(T status, double costTo, State<T> *prev) {
 
-    this->state = status;
-    this->cost = costTo;
-    this->cameFrom = prev;
-    this->visited = false;
-    this->original_cost = costTo;
-    this->distance_from_start = 0;
-    this->total_cost_to = costTo;
+        this->state = status;
+        this->cost = costTo;
+        this->cameFrom = prev;
+        this->visited = false;
+        this->original_cost = costTo;
+        this->distance_from_start = 0;
+        this->total_cost_to = costTo;
 
-  }
+    }
 
-  //// CHECKERS
+    //// CHECKERS
 
-  bool Equals(const State<T> *s) {
+    bool Equals(const State<T> *s) {
 
-      return this->state == (s->state);
-  }
+        return this->state == (s->state);
+    }
 
-  //// SETTERS
+    //// SETTERS
 
-  void setDistance_from_start(int distance_from_start) {
+    void setDistance_from_start(int distance_from_start) {
 
-    this->distance_from_start = distance_from_start;
-  }
+        this->distance_from_start = distance_from_start;
+    }
 
-  void setCost(double costTo) {
+    void setCost(double costTo) {
 
-    this->cost = costTo;
-  }
+        this->cost = costTo;
+    }
 
-  void setCameFrom(State<T> *prev) {
-    this->cameFrom = prev;
-  }
+    void setCameFrom(State<T> *prev) {
+        this->cameFrom = prev;
+    }
 
-  void setVisited(bool val) {
-    this->visited = val;
-  }
+    void setVisited(bool val) {
+        this->visited = val;
+    }
 
-  void setTotal_cost_to(double total_cost_to) {
+    void setTotal_cost_to(double total_cost_to) {
 
-    State::total_cost_to = total_cost_to;
-  }
+        State::total_cost_to = total_cost_to;
+    }
 
-  //// GETTERS
+    //// GETTERS
 
-  T getState() const {
-    return this->state;
-  }
+    T getState() const {
+        return this->state;
+    }
 
-  double getCost() const {
-    return this->cost;
-  }
+    double getCost() const {
+        return this->cost;
+    }
 
-  State<T> *getCameFrom() const {
-    return cameFrom;
-  }
+    State<T> *getCameFrom() const {
+        return cameFrom;
+    }
 
-  bool getVisited() const {
-    return this->visited;
-  }
+    bool getVisited() const {
+        return this->visited;
+    }
 
-  bool isVisited() const {
-    return visited;
-  }
+    bool isVisited() const {
+        return visited;
+    }
 
-  double getOriginal_cost() const {
-    return original_cost;
-  }
+    double getOriginal_cost() const {
+        return original_cost;
+    }
 
-  int getDistance_from_start() const {
+    int getDistance_from_start() const {
 
-    return distance_from_start;
-  }
+        return distance_from_start;
+    }
 
-  double getTotal_cost_to() const {
-    return total_cost_to;
-  }
+    double getTotal_cost_to() const {
+        return total_cost_to;
+    }
 
-  //// DESTRUCTOR
+    //// DESTRUCTOR
 
-  ~State() {};
+    ~State() {};
 };
 
 #endif //BIUPROJECT2_STATE_H

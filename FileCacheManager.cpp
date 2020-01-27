@@ -6,8 +6,8 @@
  * @param path The path to the save file.
  */
 FileCacheManager::FileCacheManager(std::string path) {
-  filePath = path;
-  loadAllSolutions();
+    filePath = path;
+    loadAllSolutions();
 }
 
 /**
@@ -17,7 +17,7 @@ FileCacheManager::FileCacheManager(std::string path) {
  */
 bool FileCacheManager::isSolutionExists(const std::string solution) {
 
-  return (this->solutions.count(solution) > 0);
+    return (this->solutions.count(solution) > 0);
 }
 
 /**
@@ -27,11 +27,11 @@ bool FileCacheManager::isSolutionExists(const std::string solution) {
  */
 std::string FileCacheManager::getSolution(const std::string problem) {
 
-  if (isSolutionExists(problem)) {
-    return this->solutions.at(problem);
-  } else {
-    return "";
-  }
+    if (isSolutionExists(problem)) {
+        return this->solutions.at(problem);
+    } else {
+        return "";
+    }
 }
 
 /**
@@ -41,24 +41,24 @@ std::string FileCacheManager::getSolution(const std::string problem) {
  */
 void FileCacheManager::saveSolution(const std::string problem, const std::string solution) {
 
-  /* Create file object. */
-  ofstream dataFile;
+    /* Create file object. */
+    ofstream dataFile;
 
-  dataFile.open(this->filePath, std::ios_base::app);
+    dataFile.open(this->filePath, std::ios_base::app);
 
-  /* Adding to map. */
-  std::pair<std::string, std::string> pairToAdd;
-  pairToAdd.first = problem;
-  pairToAdd.second = solution;
-  this->solutions.insert(pairToAdd);
+    /* Adding to map. */
+    std::pair<std::string, std::string> pairToAdd;
+    pairToAdd.first = problem;
+    pairToAdd.second = solution;
+    this->solutions.insert(pairToAdd);
 
-  /* Writing to file */
-  dataFile << problem << endl;
+    /* Writing to file */
+    dataFile << problem << endl;
 
-  dataFile << solution << endl;
+    dataFile << solution << endl;
 
-  /* Closing file. */
-  dataFile.close();
+    /* Closing file. */
+    dataFile.close();
 }
 
 /**
@@ -66,27 +66,27 @@ void FileCacheManager::saveSolution(const std::string problem, const std::string
  */
 void FileCacheManager::loadAllSolutions() {
 
-  /* The data holders. */
-  std::string problem;
-  std::string solution;
-  ifstream data;
-  data.open(this->filePath);
+    /* The data holders. */
+    std::string problem;
+    std::string solution;
+    ifstream data;
+    data.open(this->filePath);
 
-  if (!data.good()) {
+    if (!data.good()) {
 
+        return;
+    }
+
+    /* Read a line from file. */
+    while (std::getline(data, problem)) {
+
+        std::getline(data, solution);
+        std::pair<std::string, std::string> pairToAdd;
+        pairToAdd.first = problem;
+        pairToAdd.second = solution;
+        this->solutions.insert(pairToAdd);
+    }
+
+    data.close();
     return;
-  }
-
-  /* Read a line from file. */
-  while (std::getline(data, problem)) {
-
-    std::getline(data, solution);
-    std::pair<std::string, std::string> pairToAdd;
-    pairToAdd.first = problem;
-    pairToAdd.second = solution;
-    this->solutions.insert(pairToAdd);
-  }
-
-  data.close();
-  return;
 }

@@ -11,27 +11,28 @@
 using namespace std;
 
 class FileCacheManager : public CacheManager {
- private:
+private:
 
-  //// Members:
-  string filePath;
+    //// Members:
+    string filePath;
 
-  std::unordered_map<std::string, std::string> solutions;
+    std::unordered_map<std::string, std::string> solutions;
 
-  //// Private Functions:
-  void loadAllSolutions();
- public:
+    //// Private Functions:
+    void loadAllSolutions();
 
-  //// Public Functions:
-  explicit FileCacheManager(std::string);
+public:
 
-  virtual bool isSolutionExists(std::string);
+    //// Public Functions:
+    explicit FileCacheManager(std::string);
 
-  virtual std::string getSolution(std::string);
+    virtual bool isSolutionExists(std::string);
 
-  virtual void saveSolution(std::string, std::string);
+    virtual std::string getSolution(std::string);
 
-  ~FileCacheManager() {};
+    virtual void saveSolution(std::string, std::string);
+
+    ~FileCacheManager() {};
 };
 
 #endif //BIUPROJECT2_FILECACHEMANAGER_H

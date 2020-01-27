@@ -9,24 +9,27 @@
 
 class SearchableMatrix : public ISearchable<std::pair<int, int>> {
 
- private:
+private:
 
-  //// MEMBERS
+    //// MEMBERS
 
-  std::vector<std::vector<State<std::pair<int, int>> *>> stateMatrix;
-  std::vector<std::vector<int>> mazeMatrix;
-  State<std::pair<int, int>> *goal;
-  State<std::pair<int, int>> *start;
+    std::vector<std::vector<State<std::pair<int, int>> *>> stateMatrix;
+    std::vector<std::vector<int>> mazeMatrix;
+    State<std::pair<int, int>> *goal;
+    State<std::pair<int, int>> *start;
 
- public:
+public:
 
-  SearchableMatrix(std::string, std::string, std::string);
+    SearchableMatrix(std::string, std::string, std::string);
 
- public:
-  State<std::pair<int, int>> *getInitialState() override;
-  State<std::pair<int, int>> *getGoalState() override;
-  std::vector<State<std::pair<int, int>> *> getAllPossibleStates(State<std::pair<int, int>> *) override;
-  ~SearchableMatrix()  override;
+public:
+    State<std::pair<int, int>> *getInitialState() override;
+
+    State<std::pair<int, int>> *getGoalState() override;
+
+    std::vector<State<std::pair<int, int>> *> getAllPossibleStates(State<std::pair<int, int>> *) override;
+
+    ~SearchableMatrix() override;
 };
 
 #endif //BIUPROJECT2_SEARCHABLEMATRIX_H
