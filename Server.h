@@ -31,5 +31,4 @@ class Server {
   virtual void stop() = 0;
 };
 }
-
 #endif //BIUPROJECT2_SERVER_H

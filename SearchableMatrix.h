@@ -12,7 +12,6 @@ class SearchableMatrix : public ISearchable<std::pair<int, int>> {
 private:
 
     //// MEMBERS
-
     std::vector<std::vector<State<std::pair<int, int>> *>> stateMatrix;
     std::vector<std::vector<int>> mazeMatrix;
     State<std::pair<int, int>> *goal;

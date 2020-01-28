@@ -55,7 +55,7 @@ public:
                     (*itor)->setCameFrom(top);
 
                     /* Update node's cost. */
-                    (*itor)->setCost((*itor)->getCost() + top->getCost());
+                    (*itor)-> setCost((*itor)->getCost() + top->getCost());
                 }
             }
         }

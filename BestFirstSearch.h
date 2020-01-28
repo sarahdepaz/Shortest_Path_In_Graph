@@ -7,7 +7,7 @@
 #include "PQSearcher.h"
 
 template<class P, class S>
-class BestFirstSearch : public PQSearcher<P, S> {
+class BestFirstSearch: public PQSearcher<P, S> {
  private:
 
  public:

@@ -16,7 +16,7 @@ private:
     //// Members:
     string filePath;
 
-    std::unordered_map<std::string, std::string> solutions;
+    std::unordered_map <std::string, std::string> solutions;
 
     //// Private Functions:
     void loadAllSolutions();

@@ -33,7 +33,7 @@ public:
             qs.pop(); //delete the element we have just gotten.
             this->numberOfNodesEvaluated++;
 
-            if (node->Equals(searchable->getGoalState())) {
+            if (node-> Equals(searchable->getGoalState())) {
                 return goal;
             }
 

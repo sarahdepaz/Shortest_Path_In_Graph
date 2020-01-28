@@ -29,7 +29,7 @@ class ISearcher {
   /**
    * Destructor.
    */
-  virtual ~ISearcher() { };
+  virtual ~ISearcher() {  };
 };
 
 #endif //BIUPROJECT2_SEARCHER_H

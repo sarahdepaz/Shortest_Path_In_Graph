@@ -24,7 +24,7 @@ class ISearchable {
    * @param s The state we begin in.
    * @return a vector of all possible moves.
    */
-  virtual std::vector<State<T> *> getAllPossibleStates(State<T> *s) = 0;
+  virtual std::vector <State<T> *> getAllPossibleStates(State<T> *s) = 0;
 
   /**
    * Destructor.

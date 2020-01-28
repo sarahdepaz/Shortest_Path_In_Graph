@@ -7,7 +7,7 @@
 template<class T>
 class StateComparatorLesser {
   bool operator()(const State<T> *a, const State<T> *b) const {
-    return (a->getCost() < b->getCost());
+    return (a->getCost() < b->getCost( ));
   }
 };
 

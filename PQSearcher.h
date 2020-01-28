@@ -46,7 +46,6 @@ class PQSearcher : public ISearcher<P, S> {
         return iterator;
       }
     }
-
     return this->stateSet.end();
   }
 

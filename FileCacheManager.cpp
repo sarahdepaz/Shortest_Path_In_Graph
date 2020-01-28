@@ -44,7 +44,7 @@ void FileCacheManager::saveSolution(const std::string problem, const std::string
     /* Create file object. */
     ofstream dataFile;
 
-    dataFile.open(this->filePath, std::ios_base::app);
+    dataFile.open(this-> filePath, std::ios_base::app);
 
     /* Adding to map. */
     std::pair<std::string, std::string> pairToAdd;

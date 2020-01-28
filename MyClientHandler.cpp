@@ -54,7 +54,7 @@ void MyClientHandler::handleClient(int socket_id) {
     mutex.lock(); /* Locking mutex. */
 
     std::string result;
-    if (this->cacheManager->isSolutionExists(problem_text)) {
+    if (this->cacheManager->isSolutionExists(problem_text)){
         result = this->cacheManager->getSolution(problem_text);
     } else {
         // Solving and saving.

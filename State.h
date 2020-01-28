@@ -10,7 +10,6 @@ template<class T>
 class State {
 
 private:
-
     //// Data Members.
     int distance_from_start;
     double total_cost_to;

@@ -22,6 +22,7 @@ class MySerialServer : public Server {
   virtual void open(int port, ClientHandler *clientHandler);
 
   virtual void stop();
+
   static void *openServer(void *argumentsForOpenServer);
 };
 

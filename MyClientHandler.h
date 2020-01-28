@@ -31,7 +31,7 @@ class MyClientHandler : public ClientHandler {
  public:
   //// Constructor:
   MyClientHandler
-      (Solver<ISearchable<std::pair<int, int>> *, State<std::pair<int, int>> *> *solver,
+      (Solver<ISearchable<std::pair <int, int>> *, State<std::pair<int, int>> *> *solver,
        CacheManager *cacheManager) {
 
     this->cacheManager = cacheManager;

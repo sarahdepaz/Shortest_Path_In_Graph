@@ -21,7 +21,7 @@ class SolverToSearcherAdapter : public Solver<ISearchable<std::pair<int, int>> *
    * @param searcher The search method.
    */
   SolverToSearcherAdapter(ISearcher<std::pair<int, int>, State<std::pair<int, int>> *> *searcher)
-      : searcher(searcher) {}
+      : searcher(searcher) { }
 
   /**
    * Solve's the problem - Search using provided method.

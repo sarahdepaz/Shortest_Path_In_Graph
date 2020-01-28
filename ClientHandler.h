@@ -16,6 +16,6 @@ class ClientHandler {
    * @param output
    */
   virtual void handleClient(int) = 0;
-};
+} ;
 
 #endif //BIUPROJECT2_CLIENTHANDLER_H
