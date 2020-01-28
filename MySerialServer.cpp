@@ -36,7 +36,7 @@ void *MySerialServer::openServer(void *argumentsForOpenServer) {
 
     /* Now start listening for the clients. */
 
-    while (true) {
+    while (true){
 
         listen(sockfd, 5);
         clilen = sizeof(cli_addr);
