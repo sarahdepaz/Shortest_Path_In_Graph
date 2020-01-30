@@ -9,6 +9,7 @@
  */
 class ArgumentsForOpenServer {
  private:
+
   ClientHandler *clientHandler;
   int portNum;
   int socketID;
