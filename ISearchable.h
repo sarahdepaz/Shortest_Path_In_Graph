@@ -13,7 +13,6 @@ template<class T>
 class ISearchable {
 
  public:
-
   //// GETTERS
   virtual State<T> *getInitialState() = 0;
 
