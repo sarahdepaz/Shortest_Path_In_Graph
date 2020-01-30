@@ -29,5 +29,4 @@ class Solver {
    */
   virtual ~Solver() { };
 };
-
 #endif //BIUPROJECT2_SOLVER_H
