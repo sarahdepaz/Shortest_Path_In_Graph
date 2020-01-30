@@ -11,7 +11,6 @@ void MyTestClientHandler::handleClient(int socketfd) {
     int n;
 
     while (isEndReached) {
-
         /* Read current line. */
         bzero(buffer, 1024);
 
