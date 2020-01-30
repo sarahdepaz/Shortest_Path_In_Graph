@@ -60,7 +60,6 @@ void MyParallelServer::open(int port, ClientHandler *clientHandler) {
 
         listen(sockfd, 10);
         clilen = sizeof(cli_addr);
-
         /* Accept actual connection from the client */
         newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, (socklen_t *) &clilen);
 
