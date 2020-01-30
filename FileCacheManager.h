@@ -25,11 +25,8 @@ public:
 
     //// Public Functions:
     explicit FileCacheManager(std::string);
-
     virtual bool isSolutionExists(std::string);
-
     virtual std::string getSolution(std::string);
-
     virtual void saveSolution(std::string, std::string);
 
     ~FileCacheManager() {};
