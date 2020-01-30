@@ -15,7 +15,6 @@
 #include "ArgumentsForOpenServer.h"
 
 using namespace server_side;
-
 class MySerialServer : public Server {
  public:
 
