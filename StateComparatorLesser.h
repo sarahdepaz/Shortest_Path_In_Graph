@@ -10,5 +10,4 @@ class StateComparatorLesser {
     return (a->getCost() < b->getCost( ));
   }
 };
-
 #endif //BIUPROJECT2_STATECOMPARATORLESSER_H
