@@ -19,7 +19,6 @@ class ISearcher {
    * @return The search result
    */
   virtual S search(ISearchable<P> *searchable) = 0;
-
   /**
    * Returns the number of nodes the search evaluated.
    * @return the number of nodes the search evaluated.
