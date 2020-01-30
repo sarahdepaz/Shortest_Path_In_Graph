@@ -43,7 +43,6 @@ void MyClientHandler::handleClient(int socket_id) {
     std::size_t matrix_hash = GetHashOfString(maze);
     std::size_t start_pos_hash = GetHashOfString(start_pos);
     std::size_t goal_pos_hash = GetHashOfString(goal_pos);
-
     /* The string representing the problem. */
     std::string problem_text = std::to_string(matrix_hash) +
                                "," +
