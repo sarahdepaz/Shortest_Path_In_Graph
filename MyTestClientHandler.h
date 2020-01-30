@@ -16,7 +16,6 @@ class MyTestClientHandler : public ClientHandler {
  private:
   Solver<string, string> *solver;
   CacheManager *cacheManager;
-
  public:
   MyTestClientHandler(Solver<string, string> *solver1, CacheManager *cacheManager1) {
     solver = solver1;
