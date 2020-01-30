@@ -13,7 +13,6 @@
 
 template<class P, class S>
 class AStar : public BestFirstSearch<P, S> {
-
  private:
 
   /**
