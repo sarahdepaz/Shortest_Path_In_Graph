@@ -18,9 +18,7 @@ class MyTestClientHandler : public ClientHandler {
   CacheManager *cacheManager;
 
  public:
-
   MyTestClientHandler(Solver<string, string> *solver1, CacheManager *cacheManager1) {
-
     solver = solver1;
     cacheManager = cacheManager1;
   }
