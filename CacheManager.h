@@ -22,6 +22,7 @@ class CacheManager {
    * @param problem The problem to solve.
    * @return The solution as a string.
    */
+
   virtual std::string getSolution(std::string problem) = 0;
 
   /**

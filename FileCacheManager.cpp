@@ -53,6 +53,7 @@ void FileCacheManager::saveSolution(const std::string problem, const std::string
     this->solutions.insert(pairToAdd);
 
     /* Writing to file */
+
     dataFile << problem << endl;
 
     dataFile << solution << endl;
